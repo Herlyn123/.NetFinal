@@ -5,12 +5,28 @@
       "PackagePath": "staticwebassets\\TallerFinal.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Sena\\Desktop\\Nueva carpeta (3)\\EntregaFinal.net\\wwwroot\\css\\sidebar_style.css",
+      "PackagePath": "staticwebassets\\css\\sidebar_style.css"
+    },
+    {
       "Id": "C:\\Users\\Sena\\Desktop\\Nueva carpeta (3)\\EntregaFinal.net\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\Sena\\Desktop\\Nueva carpeta (3)\\EntregaFinal.net\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Sena\\Desktop\\Nueva carpeta (3)\\EntregaFinal.net\\wwwroot\\img\\1153861.png",
+      "PackagePath": "staticwebassets\\img\\1153861.png"
+    },
+    {
+      "Id": "C:\\Users\\Sena\\Desktop\\Nueva carpeta (3)\\EntregaFinal.net\\wwwroot\\img\\LogoPNG.png",
+      "PackagePath": "staticwebassets\\img\\LogoPNG.png"
+    },
+    {
+      "Id": "C:\\Users\\Sena\\Desktop\\Nueva carpeta (3)\\EntregaFinal.net\\wwwroot\\js\\navbar.js",
+      "PackagePath": "staticwebassets\\js\\navbar.js"
     },
     {
       "Id": "C:\\Users\\Sena\\Desktop\\Nueva carpeta (3)\\EntregaFinal.net\\wwwroot\\js\\site.js",
