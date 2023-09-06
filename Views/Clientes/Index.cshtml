@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TallerFinal.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/proveedorstyle/index.css" rel="stylesheet" />
+<h1>Listado de Clientes</h1>
+<div class="row">
+    <div class="col-sm-6">
+        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Clientes" style=" width:100px; ">Agregar</a>
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td class="campos">ID</td>
+                <td class="campos">Nombre</td>
+                <td class="campos">Apellido</td>
+                <td class="campos">Email</td>
+                <td class="campos">Telefono</td>
+                <td class="campos">Direccion</td>
+                <td class="campos">Estado</td>
+                <td class="campos">Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ClienteId</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Apellido</td>
+                    <td>@item.Email</td>
+                    <td>@item.Telefono</td>
+                    <td>@item.Direccion+</td>
+                    <td>@item.Estado</td>
+                    <td>
+                        <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.ClienteId" class="btn btn-info">Editar</a>
+                        <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.ClienteId" class="btn btn-danger">ELiminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

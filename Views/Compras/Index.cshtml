@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TallerFinal.Models.Compra>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/proveedorstyle/index.css" rel="stylesheet" />
+<h1>Listado de Compras</h1>
+<div class="row">
+    <div class="col-sm-6">
+        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Compras" style=" width:100px; ">Agregar</a>
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td class="campos">ID</td>
+                <td class="campos">Precio Total</td>
+                <td class="campos">Fecha De Compra</td>
+                <td class="campos">Estado</td>
+                <td class="campos">Proveedor</td>
+                <td class="campos">Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CompraId</td>
+                    <td>@item.PrecioTotal</td>
+                    <td>@item.FechaCompra</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Proveedor.Nombre</td>
+                    <td>
+                        <a asp-controller="Compras" asp-action="Edit" asp-route-id="@item.CompraId" class="btn btn-info">Editar</a>
+                        <a asp-controller="Compras" asp-action="Delete" asp-route-id="@item.CompraId" class="btn btn-danger">ELiminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
