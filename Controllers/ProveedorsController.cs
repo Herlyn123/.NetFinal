@@ -121,39 +121,42 @@ namespace TallerFinal.Controllers
         // GET: Proveedors/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Proveedors == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var proveedor = await _context.Proveedors
-                .FirstOrDefaultAsync(m => m.ProveedorId == id);
+            var proveedor = _context.Proveedors.Find(id);
+
             if (proveedor == null)
             {
                 return NotFound();
             }
 
-            return View(proveedor);
-        }
-
-        // POST: Proveedors/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Proveedors == null)
-            {
-                return Problem("Entity set 'DBentregaFinalContext.Proveedors'  is null.");
-            }
-            var proveedor = await _context.Proveedors.FindAsync(id);
-            if (proveedor != null)
-            {
-                _context.Proveedors.Remove(proveedor);
-            }
-            
+            // Realiza la eliminación del registro
+            _context.Proveedors.Remove(proveedor);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction("Index"); // Redirecciona a la acción Index u otra acción que desees después de la eliminación.
         }
+        // POST: Proveedors/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    if (_context.Proveedors == null)
+        //    {
+        //        return Problem("Entity set 'DBentregaFinalContext.Proveedors'  is null.");
+        //    }
+        //    var proveedor = await _context.Proveedors.FindAsync(id);
+        //    if (proveedor != null)
+        //    {
+        //        _context.Proveedors.Remove(proveedor);
+        //    }
+
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         private bool ProveedorExists(int id)
         {
