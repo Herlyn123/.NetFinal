@@ -12,8 +12,8 @@ using TallerFinal.Data;
 namespace TallerFinal.Migrations
 {
     [DbContext(typeof(DBentregaFinalContext))]
-    [Migration("20230906182124_TrabajoFinal")]
-    partial class TrabajoFinal
+    [Migration("20230907180038_primera")]
+    partial class primera
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

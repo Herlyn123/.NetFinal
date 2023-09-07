@@ -5,94 +5,55 @@
 }
 
 <link href="~/css/proveedorstyle/index.css" rel="stylesheet" />
-<h1>Listado de Proveedores</h1>
+<link href="~/css/cssglobal.css" rel="stylesheet" />
+
+<div class="row mt-5"><h1 class="titulo">Proveedores</h1></div>
 <div class="row">
     <div class="col-sm-6">
-        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Proveedors" style=" width:100px; ">Agregar</a>
+        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Proveedors" style=" width:100px; ">Agregar Proveedor</a>
         <br />
     </div>
 </div>
 
-<div class="row">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <td class="campos">Nombre</td>
-                <td class="campos">Teléfono</td>
-                <td class ="campos">Dirección</td>
-                <td class="campos">Contacto</td>
-                <td class="campos">Estado</td>
-                <td class="campos">Acciones</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+
+
+<div class="tabla">
+        <table class="table caption-top ">
+            <caption>Lista de proveedores</caption>
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Contacto</th>
+                    <th scope="col">Inhabilitar</th>
+                    <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @foreach (var item in Model)
             {
                 <tr>
+
                     <td>@item.Nombre</td>
                     <td>@item.Telefono</td>
                     <td>@item.Direccion</td>
                     <td>@item.Contacto</td>
-                    <td>@item.Estado</td>
-                    <td>
-                        <a asp-controller="Proveedors" asp-action="Edit" asp-route-id="@item.ProveedorId" class="btn btn-info">Editar</a>
-                        <a asp-controller="Proveedors" asp-action="Delete" asp-route-id="@item.ProveedorId" class="btn btn-danger">ELiminar</a>
+                    <td>@if (item.Estado == "1"){
+                            <img class="centrarIcono estado" src="~/img/light_switch on.svg" />
+                        } else
+                        {
+                            <img class="centrarIcono estado" src="~/img/light_switch off.svg" />
+                        }
+                       
                     </td>
+                    <td> <a asp-controller="Proveedors" asp-action="Edit" asp-route-id="@item.ProveedorId" class="btn btn-info">Editar</a></td>
+
+                   
                 </tr>
-            }
-        </tbody>
+               }
+            </tbody>
+        </table>
+    </div> 
 
-    </table>
-</div>
-
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Direccion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contacto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contacto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProveedorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProveedorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProveedorId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@

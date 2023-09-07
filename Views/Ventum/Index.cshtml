@@ -5,90 +5,55 @@
 }
 
 <link href="~/css/proveedorstyle/index.css" rel="stylesheet" />
-<h1>Listado de Ventas</h1>
+<link href="~/css/cssglobal.css" rel="stylesheet" />
+
+<div class="row mt-5"><h1 class="titulo">Ventas</h1></div>
 <div class="row">
     <div class="col-sm-6">
-        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Ventum" style=" width:100px; ">Agregar</a>
+        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Ventum" style=" width:100px; ">Agregar Venta</a>
         <br />
     </div>
 </div>
 
-<div class="row">
-    <table class="table table-bordered table-striped">
+<div class="tabla">
+    <table class="table caption-top ">
+        <caption>Lista de proveedores</caption>
         <thead>
             <tr>
-                <td class="campos">ID</td>
-                <td class="campos">Fecha Entrega</td>
-                <td class="campos">Precio Total</td>
-                <td class="campos">Estado</td>
-                <td class="campos">Cliente</td>
-                <td class="campos">Acciones</td>
+
+                <th scope="col">Fecha Entrega</th>
+                <th scope="col">Precio Total</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Inhabilitar</th>
+                <th scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.VentaId</td>
+
                     <td>@item.Fecha</td>
                     <td>@item.PrecioTotal</td>
                     <td>@item.Estado</td>
-                    <td>@item.Cliente.Nombre</td>
+                    <td>@item.ClienteId</td>
                     <td>
-                        <a asp-controller="Ventum" asp-action="Edit" asp-route-id="@item.VentaId" class="btn btn-info">Editar</a>
-                        <a asp-controller="Ventum" asp-action="Delete" asp-route-id="@item.VentaId" class="btn btn-danger">ELiminar</a>
+                        @if (item.Estado == "1")
+                        {
+                            <img class="centrarIcono estado" src="~/img/light_switch on.svg" />
+                        }
+                        else
+                        {
+                            <img class="centrarIcono estado" src="~/img/light_switch off.svg" />
+                        }
+
                     </td>
+                    <td> <a asp-controller="Ventum" asp-action="Edit" asp-route-id="@item.VentaId" class="btn btn-info">Editar</a></td>
+
+
                 </tr>
             }
         </tbody>
-
     </table>
-</div>
-
-@* <h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrecioTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cliente)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cliente.ClienteId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.VentaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.VentaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.VentaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table> *@
+</div> 

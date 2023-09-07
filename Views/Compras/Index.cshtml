@@ -5,42 +5,54 @@
 }
 
 <link href="~/css/proveedorstyle/index.css" rel="stylesheet" />
-<h1>Listado de Compras</h1>
+<link href="~/css/cssglobal.css" rel="stylesheet" />
+<div class="row mt-5"><h1 class="titulo">Compras</h1></div>
 <div class="row">
     <div class="col-sm-6">
-        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Compras" style=" width:100px; ">Agregar</a>
+        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Compras" style=" width:100px; ">Agregar Compra</a>
         <br />
     </div>
 </div>
 
-<div class="row">
-    <table class="table table-bordered table-striped">
+<div class="tabla">
+    <table class="table caption-top ">
+        <caption>Lista de Compras</caption>
         <thead>
             <tr>
-                <td class="campos">ID</td>
-                <td class="campos">Precio Total</td>
-                <td class="campos">Fecha De Compra</td>
-                <td class="campos">Estado</td>
-                <td class="campos">Proveedor</td>
-                <td class="campos">Acciones</td>
+
+                <th scope="col">Precio Total</th>
+                <th scope="col">Fecha De Compra</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Inhabilitar</th>
+                <th scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.CompraId</td>
+
                     <td>@item.PrecioTotal</td>
                     <td>@item.FechaCompra</td>
                     <td>@item.Estado</td>
                     <td>@item.Proveedor.Nombre</td>
                     <td>
-                        <a asp-controller="Compras" asp-action="Edit" asp-route-id="@item.CompraId" class="btn btn-info">Editar</a>
-                        <a asp-controller="Compras" asp-action="Delete" asp-route-id="@item.CompraId" class="btn btn-danger">ELiminar</a>
+                        @if (item.Estado == "1")
+                        {
+                            <img class="centrarIcono estado" src="~/img/light_switch on.svg" />
+                        }
+                        else
+                        {
+                            <img class="centrarIcono estado" src="~/img/light_switch off.svg" />
+                        }
+
                     </td>
+                    <td> <a asp-controller="Compras" asp-action="Edit" asp-route-id="@item.CompraId" class="btn btn-info">Editar</a></td>
+
+
                 </tr>
             }
         </tbody>
-
     </table>
 </div>
