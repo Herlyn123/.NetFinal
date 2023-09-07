@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UWSg1/C3y7DhH2f7o0Y2VuCGfu2A0xuKYqwkg0x1EmA=",
+  "Hash": "TSmG51jikeWEmCJgrBg0BVKYYsbeV8pV3cMkIC+w9aU=",
   "Source": "TallerFinal",
   "BasePath": "_content/TallerFinal",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\brian\\Documents\\.NetFinal\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\TallerFinal.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\brian\\Documents\\.NetFinal\\wwwroot\\css\\compras.css",
+      "SourceId": "TallerFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\brian\\Documents\\.NetFinal\\wwwroot\\",
+      "BasePath": "_content/TallerFinal",
+      "RelativePath": "css/compras.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\compras.css"
     },
     {
       "Identity": "C:\\Users\\brian\\Documents\\.NetFinal\\wwwroot\\css\\cssglobal.css",

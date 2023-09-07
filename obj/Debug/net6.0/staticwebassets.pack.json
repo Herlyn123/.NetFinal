@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\TallerFinal.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\brian\\Documents\\.NetFinal\\wwwroot\\css\\compras.css",
+      "PackagePath": "staticwebassets\\css\\compras.css"
+    },
+    {
       "Id": "C:\\Users\\brian\\Documents\\.NetFinal\\wwwroot\\css\\cssglobal.css",
       "PackagePath": "staticwebassets\\css\\cssglobal.css"
     },
