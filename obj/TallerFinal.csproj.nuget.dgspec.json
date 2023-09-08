@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PROGRAMACION\\repositorios desde git hub\\.NetFinal\\TallerFinal.csproj": {}
+    "C:\\Users\\Sena\\Pictures\\TallerFinal\\.NetFinal\\TallerFinal.csproj": {}
   },
   "projects": {
-    "D:\\PROGRAMACION\\repositorios desde git hub\\.NetFinal\\TallerFinal.csproj": {
+    "C:\\Users\\Sena\\Pictures\\TallerFinal\\.NetFinal\\TallerFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PROGRAMACION\\repositorios desde git hub\\.NetFinal\\TallerFinal.csproj",
+        "projectUniqueName": "C:\\Users\\Sena\\Pictures\\TallerFinal\\.NetFinal\\TallerFinal.csproj",
         "projectName": "TallerFinal",
-        "projectPath": "D:\\PROGRAMACION\\repositorios desde git hub\\.NetFinal\\TallerFinal.csproj",
-        "packagesPath": "C:\\Users\\JSK\\.nuget\\packages\\",
-        "outputPath": "D:\\PROGRAMACION\\repositorios desde git hub\\.NetFinal\\obj\\",
+        "projectPath": "C:\\Users\\Sena\\Pictures\\TallerFinal\\.NetFinal\\TallerFinal.csproj",
+        "packagesPath": "C:\\Users\\Sena\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sena\\Pictures\\TallerFinal\\.NetFinal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\JSK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sena\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

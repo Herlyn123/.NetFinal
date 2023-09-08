@@ -22,11 +22,7 @@
                 <input asp-for="FechaCompra" class="form-control" />
                 <span asp-validation-for="FechaCompra" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Estado" />
             <div class="form-group">
                 <label asp-for="ProveedorId" class="control-label">Proveedor Id</label>
                 <select asp-for="ProveedorId" class="form-control" asp-items="ViewBag.ProveedorId"></select>
@@ -40,6 +36,10 @@
         </form>
     </div>
 </div>
-
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 
 

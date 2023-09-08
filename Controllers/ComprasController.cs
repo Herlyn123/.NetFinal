@@ -122,43 +122,30 @@ namespace TallerFinal.Controllers
             return View(compra);
         }
 
-        // GET: Compras/Delete/5
+        // GET: Ventum/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Compras == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var compra = await _context.Compras
-                .Include(c => c.Proveedor)
-                .FirstOrDefaultAsync(m => m.CompraId == id);
+            var compra = _context.Compras.Find(id);
+
             if (compra == null)
             {
                 return NotFound();
             }
 
-            return View(compra);
+            // Realiza la eliminación del registro
+
+            compra.Estado = !compra.Estado;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index"); // Redirecciona a la acción Index u otra acción que desees después de la eliminación.
         }
 
-        // POST: Compras/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Compras == null)
-            {
-                return Problem("Entity set 'DBentregaFinalContext.Compras'  is null.");
-            }
-            var compra = await _context.Compras.FindAsync(id);
-            if (compra != null)
-            {
-                _context.Compras.Remove(compra);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
         private bool CompraExists(int id)
         {

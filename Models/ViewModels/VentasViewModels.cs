@@ -10,6 +10,7 @@ namespace TallerFinal.Models.ViewModels
         public DateTime? Fecha { get; set; }
         [Required(ErrorMessage = "El precio total es obligatorio")]
         public double? PrecioTotal { get; set; }
+        [Required(ErrorMessage = "El estado es obligatorio")]
         public bool? Estado { get; set; }
         [Required(ErrorMessage = "El cliente es obligatorio")]
         public int? ClienteId { get; set; }

@@ -137,18 +137,25 @@ namespace TallerFinal.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VentaId"), 1L, 1);
 
                     b.Property<int?>("ClienteId")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("Estado")
+                    b.Property<bool?>("Estado")
                         .HasMaxLength(1)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(1)");
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("Fecha")
+                        .IsRequired()
                         .HasColumnType("date");
 
                     b.Property<double?>("PrecioTotal")
+                        .IsRequired()
                         .HasColumnType("float");
+
+                    b.Property<string>("Producto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("VentaId")
                         .HasName("PK__Venta__5B4150ACAA869BCA");
@@ -173,6 +180,8 @@ namespace TallerFinal.Migrations
                     b.HasOne("TallerFinal.Models.Cliente", "Cliente")
                         .WithMany("Venta")
                         .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK__Venta__ClienteId__267ABA7A");
 
                     b.Navigation("Cliente");

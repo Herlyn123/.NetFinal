@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TallerFinal.Migrations
 {
-    public partial class primera : Migration
+    public partial class taller : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,10 +50,11 @@ namespace TallerFinal.Migrations
                 {
                     VentaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Fecha = table.Column<DateTime>(type: "date", nullable: true),
-                    PrecioTotal = table.Column<double>(type: "float", nullable: true),
-                    Estado = table.Column<string>(type: "varchar(1)", unicode: false, maxLength: 1, nullable: true),
-                    ClienteId = table.Column<int>(type: "int", nullable: true)
+                    Fecha = table.Column<DateTime>(type: "date", nullable: false),
+                    PrecioTotal = table.Column<double>(type: "float", nullable: false),
+                    Estado = table.Column<bool>(type: "bit", unicode: false, maxLength: 1, nullable: true),
+                    ClienteId = table.Column<int>(type: "int", nullable: false),
+                    Producto = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +63,8 @@ namespace TallerFinal.Migrations
                         name: "FK__Venta__ClienteId__267ABA7A",
                         column: x => x.ClienteId,
                         principalTable: "Cliente",
-                        principalColumn: "ClienteId");
+                        principalColumn: "ClienteId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
