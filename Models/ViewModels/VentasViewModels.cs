@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
-namespace TallerFinal.Models
+namespace TallerFinal.Models.ViewModels
 {
-    public partial class Ventum
+    public class VentasViewModels
     {
         public int VentaId { get; set; }
         [Required(ErrorMessage = "La fecha es obligatoria")]
@@ -18,6 +17,8 @@ namespace TallerFinal.Models
         [Required(ErrorMessage = "El producto es obligatorio")]
         public string? Producto { get; set; }
 
-        public virtual Cliente? Cliente { get; set; }
+
+        // Lista  de los clientes
+        public List<SelectListItem> OpcionesDeClientes { get; set; }
     }
 }

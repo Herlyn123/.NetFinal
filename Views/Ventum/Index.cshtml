@@ -28,10 +28,11 @@
         <thead>
             <tr>
 
-                <th scope="col">Fecha Entrega</th>
+                
                 <th scope="col">Precio Total</th>
-                <th scope="col">Estado</th>
                 <th scope="col">Cliente</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Fecha Entrega</th>
                 <th scope="col">Inhabilitar</th>
                 <th scope="col">Editar</th>
             </tr>
@@ -40,19 +41,22 @@
             @foreach (var item in Model)
             {
                 <tr>
-
-                    <td>@item.Fecha</td>
                     <td>@item.PrecioTotal</td>
-                    <td>@item.Estado</td>
-                    <td>@item.ClienteId</td>
+                    <td>@item.Cliente.Nombre</td>
+                    <td>@item.Producto</td>
+                    <td>@item.Fecha</td>
                     <td>
-                        @if (item.Estado == "1")
+                        @if (item.Estado == true)
                         {
-                            <img class="centrarIcono estado" src="~/img/light_switch on.svg" />
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal-@item.VentaId" style="text-decoration: none; outline: none;">
+                                <img class="centrarIcono estado" src="~/img/light_switch on.svg" />
+                            </a>
                         }
                         else
                         {
-                            <img class="centrarIcono estado" src="~/img/light_switch off.svg" />
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal-@item.VentaId" style="text-decoration: none; outline: none;">
+                                <img class="centrarIcono estado" src="~/img/light_switch off.svg" />
+                            </a>
                         }
 
                     </td>
@@ -60,7 +64,31 @@
 
 
                 </tr>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal-@item.VentaId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmar acción</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">¿Deseas cambiar el estado de este registro?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                @* Aca se manda a llamar el método para eliminar el reguistro seleccionado *@
+                                <a asp-controller="Ventum" asp-action="Delete" asp-route-id="@item.VentaId" class="btn btn-success">
+                                    Si, totalmente seguro
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
         </tbody>
     </table>
 </div> 
+
+

@@ -9,113 +9,109 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TallerFinal
 build_property.RootNamespace = TallerFinal
-build_property.ProjectDir = C:\Users\brian\Documents\.NetFinal\
+build_property.ProjectDir = D:\PROGRAMACION\repositorios desde git hub\.NetFinal\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\brian\Documents\.NetFinal
+build_property.MSBuildProjectDirectory = D:\PROGRAMACION\repositorios desde git hub\.NetFinal
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Clientes/Create.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Clientes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Clientes/Delete.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Clientes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Clientes/Details.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Clientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Clientes/Edit.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Clientes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Clientes/Index.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Compras/Create.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Compras/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Compras/Delete.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Compras/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Compras/Details.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Compras/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Compras/Edit.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Compras/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Compras/Index.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Compras/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHJhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Home/Index.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Home/Privacy.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Proveedors/Create.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Proveedors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Proveedors/Details.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Proveedors/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Proveedors/Edit.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Proveedors/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Proveedors/Index.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Proveedors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Shared/Error.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Ventum/Create.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Ventum/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudHVtXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Ventum/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudHVtXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/brian/Documents/.NetFinal/Views/Ventum/Details.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Ventum/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudHVtXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Ventum/Edit.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Ventum/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudHVtXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Ventum/Index.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Ventum/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudHVtXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/_ViewImports.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/_ViewStart.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/brian/Documents/.NetFinal/Views/Shared/_Layout.cshtml]
+[D:/PROGRAMACION/repositorios desde git hub/.NetFinal/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-e29ev92b2e

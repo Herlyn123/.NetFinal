@@ -1,12 +1,13 @@
-﻿@model TallerFinal.Models.Ventum
+﻿@model TallerFinal.Models.ViewModels.VentasViewModels
 
 @{
     ViewData["Title"] = "Edit";
 }
 <link href="~/css/compras.css" rel="stylesheet" />
-<h1>Edit</h1>
 
-<h4>Ventum</h4>
+<link href="~/css/compras.css" rel="stylesheet" />
+<h1>EDITAR VENTA</h1>
+
 
 <div class="row">
     <div class="col-md-4">
@@ -19,28 +20,39 @@
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PrecioTotal" class="control-label"></label>
+                <label asp-for="PrecioTotal" class="control-label">Precio total</label>
                 <input asp-for="PrecioTotal" class="form-control" />
                 <span asp-validation-for="PrecioTotal" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                <label asp-for="Producto" class="control-label"></label>
+                <select asp-for="Producto" class="form-control">
+                    <option value="">Seleccione un producto</option>
+                    <option value="Camisa de super man">Camisa de super man</option>
+                    <option value="Buzo de flores">Buzo de flores</option>
+                    <option value="Camisa de los simpson">Camisa de los simpson</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                </select>
                 <span asp-validation-for="ClienteId" class="text-danger"></span>
             </div>
+            <input type="hidden" asp-for="Estado" />
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="ClienteId" class="control-label"></label>
+                <select asp-for="ClienteId" class="form-control" asp-items="@Model.OpcionesDeClientes"  ></select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" asp-action="Index" value="Cancelar" class="btn btn-danger" />
+                <input type="submit" value="Guardar" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

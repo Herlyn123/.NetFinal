@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TallerFinal.Data;
 using TallerFinal.Models;
+using TallerFinal.Models.ViewModels;
 
 namespace TallerFinal.Controllers
 {
     public class VentumController : Controller
     {
-        private readonly DBentregaFinalContext _context;
+        private readonly Data.DBentregaFinalContext _context;
 
         public VentumController(DBentregaFinalContext context)
         {
@@ -34,21 +35,30 @@ namespace TallerFinal.Controllers
                 return NotFound();
             }
 
-            var ventum = await _context.Venta
-                .Include(v => v.Cliente)
-                .FirstOrDefaultAsync(m => m.VentaId == id);
-            if (ventum == null)
-            {
-                return NotFound();
-            }
 
-            return View(ventum);
+            var venta = _context.Venta.FirstOrDefault(v => v.VentaId == id);
+
+            if (venta == null)
+                return NotFound();
+
+            var clientes = _context.Clientes.ToList();
+
+            var viewModel = new VentasViewModels
+            {
+                VentaId = venta.VentaId,
+                OpcionesDeClientes = clientes.Select(cliente => new SelectListItem
+                {
+                    Value = cliente.ClienteId.ToString(),
+                    Text = cliente.Nombre
+                }).ToList()
+            };
+            return View(viewModel);
         }
 
         // GET: Ventum/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "ClienteId");
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "Nombre");
             return View();
         }
 
@@ -57,7 +67,7 @@ namespace TallerFinal.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VentaId,Fecha,PrecioTotal,Estado,ClienteId")] Ventum ventum)
+        public async Task<IActionResult> Create([Bind("VentaId,Fecha,PrecioTotal,Producto,Estado,ClienteId")] Ventum ventum)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +75,7 @@ namespace TallerFinal.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "ClienteId", ventum.ClienteId);
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "Nombre", ventum.ClienteId);
             return View(ventum);
         }
 
@@ -77,13 +87,30 @@ namespace TallerFinal.Controllers
                 return NotFound();
             }
 
-            var ventum = await _context.Venta.FindAsync(id);
-            if (ventum == null)
-            {
+
+            var venta = _context.Venta.FirstOrDefault(v => v.VentaId == id);
+
+            Console.WriteLine(venta);
+
+            if (venta == null)
                 return NotFound();
-            }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "ClienteId", ventum.ClienteId);
-            return View(ventum);
+
+            var clientes = _context.Clientes.ToList();
+
+            var viewModel = new VentasViewModels
+            {
+                VentaId = venta.VentaId,
+                Fecha = venta.Fecha,
+                PrecioTotal = venta.PrecioTotal,
+                Producto = venta.Producto,
+                Estado = venta.Estado,
+                OpcionesDeClientes = clientes.Select(cliente => new SelectListItem
+                {
+                    Value = cliente.ClienteId.ToString(),
+                    Text = cliente.Nombre
+                }).ToList()
+            };
+            return View(viewModel);
         }
 
         // POST: Ventum/Edit/5
@@ -91,78 +118,79 @@ namespace TallerFinal.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VentaId,Fecha,PrecioTotal,Estado,ClienteId")] Ventum ventum)
+        public async Task<IActionResult> Edit(int id, [Bind("VentaId,Fecha,PrecioTotal,Producto,Estado,ClienteId")] VentasViewModels ventum)
         {
             if (id != ventum.VentaId)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+
+            try
             {
-                try
+                // Recupera la entidad de venta desde la base de datos
+                var venta = await _context.Venta.FirstOrDefaultAsync(v => v.VentaId == id);
+
+                if (venta == null)
                 {
-                    _context.Update(ventum);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VentumExists(ventum.VentaId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+
+                // Actualiza la entidad de venta con los datos del modelo de vista
+                venta.VentaId = ventum.VentaId;
+                venta.Fecha = ventum.Fecha;
+                venta.PrecioTotal = ventum.PrecioTotal;
+                venta.Producto = ventum.Producto;
+                venta.Estado = ventum.Estado;
+
+                venta.ClienteId = ventum.ClienteId;
+
+                // Guarda los cambios en la base de datos
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Index");
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "ClienteId", ventum.ClienteId);
-            return View(ventum);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!VentumExists(ventum.VentaId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
         }
 
         // GET: Ventum/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Venta == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var ventum = await _context.Venta
-                .Include(v => v.Cliente)
-                .FirstOrDefaultAsync(m => m.VentaId == id);
-            if (ventum == null)
+            var venta = _context.Venta.Find(id);
+
+            if (venta == null)
             {
                 return NotFound();
             }
 
-            return View(ventum);
-        }
+            // Realiza la eliminación del registro
 
-        // POST: Ventum/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Venta == null)
-            {
-                return Problem("Entity set 'DBentregaFinalContext.Venta'  is null.");
-            }
-            var ventum = await _context.Venta.FindAsync(id);
-            if (ventum != null)
-            {
-                _context.Venta.Remove(ventum);
-            }
-            
+            venta.Estado = !venta.Estado;
+
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction("Index"); // Redirecciona a la acción Index u otra acción que desees después de la eliminación.
         }
 
         private bool VentumExists(int id)
         {
-          return (_context.Venta?.Any(e => e.VentaId == id)).GetValueOrDefault();
+            return (_context.Venta?.Any(e => e.VentaId == id)).GetValueOrDefault();
         }
     }
 }
