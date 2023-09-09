@@ -149,7 +149,7 @@ namespace TallerFinal.Controllers
 
         private bool CompraExists(int id)
         {
-          return (_context.Compras?.Any(e => e.CompraId == id)).GetValueOrDefault();
+            return (_context.Compras?.Any(e => e.CompraId == id)).GetValueOrDefault();
         }
     }
 }

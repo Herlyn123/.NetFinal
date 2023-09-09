@@ -118,7 +118,7 @@ namespace TallerFinal.Controllers
             return View(proveedor);
         }
 
-        // GET: Proveedors/Delete/5
+        // GET: Ventum/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,15 +126,17 @@ namespace TallerFinal.Controllers
                 return NotFound();
             }
 
-            var proveedor = _context.Proveedors.Find(id);
+            var proveedo = _context.Proveedors.Find(id);
 
-            if (proveedor == null)
+            if (proveedo == null)
             {
                 return NotFound();
             }
 
             // Realiza la eliminación del registro
-            _context.Proveedors.Remove(proveedor);
+
+            proveedo.Estado = !proveedo.Estado;
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index"); // Redirecciona a la acción Index u otra acción que desees después de la eliminación.

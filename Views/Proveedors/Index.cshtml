@@ -50,18 +50,24 @@
                     <td>@item.Telefono</td>
                     <td>@item.Direccion</td>
                     <td>@item.Contacto</td>
-                    <td>@if (item.Estado == "1"){
-                            <button data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ProveedorId"> <img class="centrarIcono estado" src="~/img/light_switch on.svg" /></button>
-                            
-                        } else
+                    <td>
+                        @if (item.Estado == true)
                         {
-                            <button data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ProveedorId"> <img class="centrarIcono estado" src="~/img/light_switch off.svg" /></button>
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ProveedorId" style="text-decoration: none; outline: none;">
+                                <img class="centrarIcono estado" src="~/img/light_switch on.svg" />
+                            </a>
                         }
-                       
+                        else
+                        {
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ProveedorId" style="text-decoration: none; outline: none;">
+                                <img class="centrarIcono estado" src="~/img/light_switch off.svg" />
+                            </a>
+                        }
+
                     </td>
                     <td> <a asp-controller="Proveedors" asp-action="Edit" asp-route-id="@item.ProveedorId" class="btn btn-info">Editar</a></td>
 
-                   
+
                 </tr>
 
                 <!-- Modal -->

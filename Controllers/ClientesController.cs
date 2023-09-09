@@ -22,9 +22,9 @@ namespace TallerFinal.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-              return _context.Clientes != null ? 
-                          View(await _context.Clientes.ToListAsync()) :
-                          Problem("Entity set 'DBentregaFinalContext.Clientes'  is null.");
+            return _context.Clientes != null ?
+                        View(await _context.Clientes.ToListAsync()) :
+                        Problem("Entity set 'DBentregaFinalContext.Clientes'  is null.");
         }
 
         // GET: Clientes/Details/5
@@ -150,14 +150,14 @@ namespace TallerFinal.Controllers
             {
                 _context.Clientes.Remove(cliente);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClienteExists(int id)
         {
-          return (_context.Clientes?.Any(e => e.ClienteId == id)).GetValueOrDefault();
+            return (_context.Clientes?.Any(e => e.ClienteId == id)).GetValueOrDefault();
         }
     }
 }
