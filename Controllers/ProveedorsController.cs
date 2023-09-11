@@ -22,9 +22,9 @@ namespace TallerFinal.Controllers
         // GET: Proveedors
         public async Task<IActionResult> Index()
         {
-              return _context.Proveedors != null ? 
-                          View(await _context.Proveedors.ToListAsync()) :
-                          Problem("Entity set 'DBentregaFinalContext.Proveedors'  is null.");
+            return _context.Proveedors != null ?
+                        View(await _context.Proveedors.ToListAsync()) :
+                        Problem("Entity set 'DBentregaFinalContext.Proveedors'  is null.");
         }
 
         // GET: Proveedors/Details/5
@@ -144,7 +144,7 @@ namespace TallerFinal.Controllers
 
         private bool ProveedorExists(int id)
         {
-          return (_context.Proveedors?.Any(e => e.ProveedorId == id)).GetValueOrDefault();
+            return (_context.Proveedors?.Any(e => e.ProveedorId == id)).GetValueOrDefault();
         }
     }
 }

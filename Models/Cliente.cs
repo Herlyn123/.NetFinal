@@ -23,7 +23,7 @@ namespace TallerFinal.Models
         public string? Email { get; set; }
         [Required(ErrorMessage = "Este campo es obligatoria")]
 
-        public int? Telefono { get; set; }
+        public string? Telefono { get; set; }
         [Required(ErrorMessage = "Este campo es obligatoria")]
 
         public string? Direccion { get; set; }
