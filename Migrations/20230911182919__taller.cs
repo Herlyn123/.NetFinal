@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TallerFinal.Migrations
 {
-    public partial class taller : Migration
+    public partial class _taller : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +20,7 @@ namespace TallerFinal.Migrations
                     Email = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
                     Telefono = table.Column<int>(type: "int", nullable: true),
                     Direccion = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
-                    Estado = table.Column<string>(type: "varchar(1)", unicode: false, maxLength: 1, nullable: true)
+                    Estado = table.Column<bool>(type: "bit", unicode: false, maxLength: 1, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -33,11 +33,11 @@ namespace TallerFinal.Migrations
                 {
                     ProveedorId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Direccion = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true),
-                    Contacto = table.Column<string>(type: "varchar(1)", unicode: false, maxLength: 1, nullable: true),
-                    Estado = table.Column<string>(type: "varchar(1)", unicode: false, maxLength: 1, nullable: true)
+                    Nombre = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Direccion = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
+                    Contacto = table.Column<string>(type: "varchar(1)", unicode: false, maxLength: 1, nullable: false),
+                    Estado = table.Column<bool>(type: "bit", unicode: false, maxLength: 1, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,7 +52,7 @@ namespace TallerFinal.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Fecha = table.Column<DateTime>(type: "date", nullable: false),
                     PrecioTotal = table.Column<double>(type: "float", nullable: false),
-                    Estado = table.Column<bool>(type: "bit", unicode: false, maxLength: 1, nullable: true),
+                    Estado = table.Column<bool>(type: "bit", unicode: false, maxLength: 1, nullable: false),
                     ClienteId = table.Column<int>(type: "int", nullable: false),
                     Producto = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -73,10 +73,10 @@ namespace TallerFinal.Migrations
                 {
                     CompraId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrecioTotal = table.Column<double>(type: "float", nullable: true),
-                    FechaCompra = table.Column<DateTime>(type: "date", nullable: true),
-                    Estado = table.Column<string>(type: "varchar(1)", unicode: false, maxLength: 1, nullable: true),
-                    ProveedorId = table.Column<int>(type: "int", nullable: true)
+                    PrecioTotal = table.Column<double>(type: "float", nullable: false),
+                    FechaCompra = table.Column<DateTime>(type: "date", nullable: false),
+                    Estado = table.Column<bool>(type: "bit", unicode: false, maxLength: 1, nullable: false),
+                    ProveedorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,7 +85,8 @@ namespace TallerFinal.Migrations
                         name: "FK__Compra__Proveedo__2B3F6F97",
                         column: x => x.ProveedorId,
                         principalTable: "Proveedor",
-                        principalColumn: "ProveedorId");
+                        principalColumn: "ProveedorId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

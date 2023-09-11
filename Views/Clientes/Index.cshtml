@@ -5,29 +5,43 @@
 }
 
 <link href="~/css/proveedorstyle/index.css" rel="stylesheet" />
-<h1>Listado de Clientes</h1>
+<link href="~/css/cssglobal.css" rel="stylesheet" />
+
+
+
+<div class="row mt-5"><h1 class="titulo">Clientes</h1></div>
+
 <div class="row">
+
+    <style>
+        .col-sm-6 {
+            margin-left: 5px;
+        }
+
+    </style>
     <div class="col-sm-6">
-        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Clientes" style=" width:100px; ">Agregar</a>
+        <a class=" btn btn-success d-block" asp-action="Create" asp-controller="Clientes" style=" width:200px; ">Agregar cliente</a>
         <br />
     </div>
 </div>
 
 
 
-<div class="row">
 
-    <table class="table table-bordered table-striped">
+<div class="table">
+    <table class="table caption-top ">
+        <caption>Lista de Clientes</caption>
+
         <thead>
             <tr>
-                <td class="campos">ID</td>
-                <td class="campos">Nombre</td>
-                <td class="campos">Apellido</td>
-                <td class="campos">Email</td>
-                <td class="campos">Telefono</td>
-                <td class="campos">Direccion</td>
-                <td class="campos">Estado</td>
-                <td class="campos">Acciones</td>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -40,12 +54,48 @@
                     <td>@item.Email</td>
                     <td>@item.Telefono</td>
                     <td>@item.Direccion+</td>
-                    <td>@item.Estado</td>
+                    <td>
+                        @if (item.Estado == true)
+                        {
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ClienteId" style="text-decoration: none; outline: none;">
+                                <img class="centrarIcono estado" src="~/img/light_switch on.svg" />
+                            </a>
+                        }
+                        else
+                        {
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ClienteId" style="text-decoration: none; outline: none;">
+                                <img class="centrarIcono estado" src="~/img/light_switch off.svg" />
+                            </a>
+
+                        }
+
+                    </td>
                     <td>
                         <a asp-controller="Clientes" asp-action="Edit" asp-route-id="@item.ClienteId" class="btn btn-info">Editar</a>
-                        <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.ClienteId" class="btn btn-danger">ELiminar</a>
                     </td>
                 </tr>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal-@item.ClienteId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmar acción</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">¿Deseas cambiar el estado de este registro?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                @* Aca se manda a llamar el método para eliminar el reguistro seleccionado *@
+                                <a asp-controller="Clientes" asp-action="Delete" asp-route-id="@item.ClienteId" class="btn btn-success">
+                                    Si, totalmente seguro
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
             }
         </tbody>
 

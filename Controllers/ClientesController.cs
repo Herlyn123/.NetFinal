@@ -119,40 +119,32 @@ namespace TallerFinal.Controllers
         }
 
         // GET: Clientes/Delete/5
+       
+
+        // POST: Clientes/Delete/5
+    
+
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Clientes == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.ClienteId == id);
+            var cliente = _context.Clientes.Find(id);
+
             if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(cliente);
-        }
+            // Realiza la eliminación del registro
 
-        // POST: Clientes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Clientes == null)
-            {
-                return Problem("Entity set 'DBentregaFinalContext.Clientes'  is null.");
-            }
-            var cliente = await _context.Clientes.FindAsync(id);
-            if (cliente != null)
-            {
-                _context.Clientes.Remove(cliente);
-            }
+            cliente.Estado = !cliente.Estado;
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return RedirectToAction("Index"); // Redirecciona a la acción Index u otra acción que desees después de la eliminación.
         }
 
         private bool ClienteExists(int id)
