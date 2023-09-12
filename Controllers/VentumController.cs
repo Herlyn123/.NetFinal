@@ -58,7 +58,7 @@ namespace TallerFinal.Controllers
         // GET: Ventum/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "Nombre");
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "ClienteId");
             return View();
         }
 
