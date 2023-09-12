@@ -32,8 +32,8 @@
             <caption>Lista de proveedores</caption>
             <thead>
                 <tr>
-                    
-                    <th scope="col">Nombre</th>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Dirección</th>
                     <th scope="col">Contacto</th>
@@ -45,7 +45,7 @@
                  @foreach (var item in Model)
             {
                 <tr>
-
+                    <td>@item.ProveedorId</td>
                     <td>@item.Nombre</td>
                     <td>@item.Telefono</td>
                     <td>@item.Direccion</td>

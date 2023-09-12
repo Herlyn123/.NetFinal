@@ -58,7 +58,8 @@ namespace TallerFinal.Controllers
         // GET: Ventum/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "ClienteId", "ClienteId");
+            var clientesConEstadoTrue = _context.Clientes.Where(c => c.Estado == true).ToList();
+            ViewData["ClienteId"] = new SelectList(clientesConEstadoTrue, "ClienteId", "ClienteId");
             return View();
         }
 

@@ -44,7 +44,8 @@ namespace TallerFinal.Controllers
         // GET: Compras/Create
         public IActionResult Create()
         {
-            ViewData["ProveedorId"] = new SelectList(_context.Proveedors, "ProveedorId", "ProveedorId");
+            var proveedoresConEstadoTrue = _context.Proveedors.Where(p => p.Estado == true).ToList();
+            ViewBag.ProveedorId = new SelectList(proveedoresConEstadoTrue, "ProveedorId", "ProveedorId");
             return View();
         }
 
